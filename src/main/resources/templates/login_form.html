@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>piri.net</title>
+	<base href="/yenisafak">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-KNN8VHW"></script>
+	<script>
+		var analyticId = "";
+		if (document.location.href.indexOf("yenisafak") > 0) {
+			analyticId = 'GTM-KNN8VHW';
+		} else if (document.location.href.indexOf("gztcom") > 0) {
+			analyticId = 'GTM-PGNRXRW';
+		}
+		if (analyticId != "") {
+
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({
+					'gtm.start': new Date().getTime(),
+					event: 'gtm.js'
+				});
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', analyticId);
+		}
+	</script>
+	<style>
+		body {
+			margin: 0
+		}
+
+		.piriid-theme {
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			font-family: "Helvetica Neue", Roboto, Arial, sans-serif;
+			background: url(/assets/img/background.png) center center/cover no-repeat fixed #00a79d;
+			background-blend-mode: multiply
+		}
+
+		.yenisafak-theme,
+		.yenisafakar-theme,
+		.yenisafaken-theme {
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			font-family: "Helvetica Neue", Roboto, Arial, sans-serif;
+			background: url(/assets/img/background.png) center center/cover no-repeat fixed #8d0001;
+			background-blend-mode: multiply
+		}
+
+		.gztcom-theme {
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			font-family: "Helvetica Neue", Roboto, Arial, sans-serif;
+			background: url(/assets/img/background.png) center center/cover no-repeat fixed #00a79d;
+			background-blend-mode: multiply
+		}
+
+		.tvnet-theme {
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			font-family: "Helvetica Neue", Roboto, Arial, sans-serif;
+			background: url(/assets/img/background.png) center center/cover no-repeat fixed #08274a;
+			background-blend-mode: multiply
+		}
+
+		.nedersiniz-theme {
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			font-family: "Helvetica Neue", Roboto, Arial, sans-serif;
+			background: url(/assets/img/background.png) center center/cover no-repeat fixed #641900;
+			background-blend-mode: multiply
+		}
+
+		.gazetemanset-theme {
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			font-family: "Helvetica Neue", Roboto, Arial, sans-serif;
+			background: url(/assets/img/background.png) center center/cover no-repeat fixed #00406a;
+			background-blend-mode: multiply
+		}
+
+		.dergilik-theme {
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			font-family: "Helvetica Neue", Roboto, Arial, sans-serif;
+			background: url(/assets/img/background.png) center center/cover no-repeat fixed #8d0001;
+			background-blend-mode: multiply
+		}
+
+		.mat-column-form {
+			background: #fff;
+			border-radius: 5px;
+			padding: 48px 48px 32px
+		}
+
+		.mat-column-form h2 {
+			display: block;
+			margin-top: 0;
+			margin-bottom: 12px;
+			font-family: 'SF Pro Text';
+			font-weight: 700;
+			font-size: 32px;
+			line-height: 40px;
+			color: #333
+		}
+
+		.mat-column-form h3 {
+			font-weight: 400;
+			font-size: 13px;
+			color: #afafaf
+		}
+
+		.mat-column-form .login-or-register {
+			font-family: 'SF Pro Text';
+			font-weight: 600;
+			margin-bottom: 24px;
+			font-size: 14px;
+			line-height: 16px;
+			color: #989898
+		}
+
+		.mat-column-form .login-or-register a {
+			color: #3897f0;
+			text-decoration: none
+		}
+
+		.mat-column-form small {
+			display: inherit;
+			font-size: 12px;
+			line-height: 130%;
+			color: #989898;
+			white-space: normal
+		}
+
+		.mat-column-form small a {
+			text-decoration: none;
+			color: #3897f0
+		}
+
+		.mat-column-form mat-checkbox {
+			margin: 1rem 0
+		}
+
+		.mat-column-form button {
+			margin-bottom: 20px
+		}
+
+		.mat-column-form .mat-form-field-infix {
+			border-top: 0 !important;
+			padding: 0 !important
+		}
+
+		.mat-column-form .mat-form-field-underline {
+			background-color: #ededed !important;
+			margin-top: -5px !important
+		}
+
+		.mat-column-form .mat-form-field-ripple {
+			background-color: #3897f0 !important;
+			border-width: 1px !important
+		}
+
+		.mat-column-form .mat-input-element {
+			font-family: SF Pro Text !important;
+			font-weight: 600 !important;
+			height: 25px !important;
+			font-size: 16px !important;
+			line-height: 22px !important;
+			color: #333 !important
+		}
+
+		.mat-column-form .mat-column-social {
+			padding: 0 30px 30px
+		}
+
+		.mat-column-form .mat-column-social h2 {
+			font-size: 32px;
+			font-weight: 400;
+			margin-bottom: 10px;
+			color: #5e5e5e
+		}
+
+		.mat-column-form .mat-column-social h3 {
+			font-weight: 400;
+			font-size: 13px;
+			color: #afafaf
+		}
+
+		.mat-column-form .mat-column-social .separate {
+			font-size: 14px;
+			text-align: center;
+			color: #b2b2b2;
+			margin: 1rem auto
+		}
+
+		.mat-column-form .mat-column-message {
+			display: block;
+			margin: 50px auto;
+			max-width: 640px;
+			text-align: center;
+			padding: 40px;
+			background: #fff;
+			border-radius: 8px;
+			border: 1px solid #eee
+		}
+
+		.mat-column-form .mat-column-message h2 {
+			font-weight: 700;
+			font-size: 28px;
+			line-height: 32px;
+			margin-bottom: 12px;
+			color: grey
+		}
+
+		.mat-column-form .mat-column-message p {
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 20px;
+			color: grey
+		}
+
+		.mat-column-form .mat-input-infix label {
+			font-family: 'SF Pro Text';
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 16px;
+			color: #989898
+		}
+
+		.mat-column-form .mat-raised-button {
+			margin-bottom: 0 !important;
+			border-radius: 6px !important;
+			min-width: 75px !important;
+			padding: 0 12px
+		}
+
+		.mat-column-form .mat-error {
+			margin-top: -15px;
+			font-size: 12px;
+			font-family: 'SF Pro Text'
+		}
+
+		.mat-column-form .mat-button-wrapper {
+			font-family: SF Pro Text;
+			font-style: normal;
+			font-weight: 600;
+			font-size: 14px !important;
+			line-height: 17px !important
+		}
+
+		.mat-column-form .mat-button-wrapper span {
+			font-size: 14px !important;
+			line-height: 17px !important
+		}
+
+		.mat-expansion-panel-body {
+			overflow: hidden !important
+		}
+
+		.pid-main {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0
+		}
+
+		.pid-content>:last-child {
+			-webkit-box-flex: 1;
+			-ms-flex: 1 1 auto;
+			flex: 1 1 auto
+		}
+
+		app-navbar {
+			position: relative;
+			z-index: 10
+		}
+
+		.form-button.mat-raised-button.mat-primary {
+			-webkit-box-shadow: none !important;
+			box-shadow: none !important;
+			background-color: #3897f0;
+			padding: 8px 12px;
+			font-family: 'SF Pro Text';
+			font-weight: 600;
+			font-size: 14px;
+			line-height: 16px;
+			color: #fff
+		}
+
+		input:-webkit-autofill,
+		input:-webkit-autofill:active,
+		input:-webkit-autofill:focus,
+		input:-webkit-autofill:hover {
+			-webkit-box-shadow: 0 0 0 30px #fff inset !important
+		}
+
+		.mat-column-form .forgot a {
+			color: #989898;
+			text-decoration: none;
+			margin-bottom: 0;
+			display: block;
+			font-family: 'SF Pro Text';
+			font-weight: 400
+		}
+
+		.mat-column-form .forgot a span {
+			font-size: 14px;
+			line-height: 24px
+		}
+
+		.mat-checkbox .mat-checkbox-inner-container {
+			width: 12px;
+			height: 12px
+		}
+
+		.mat-checkbox .mat-checkbox-inner-container .mat-checkbox-frame {
+			border-width: 1px;
+			border-color: #989898;
+			border-radius: 3px
+		}
+
+		.title {
+			text-align: center;
+			margin-top: 58px
+		}
+
+		.title h2 {
+			margin-bottom: 0;
+			border-top: 1px solid #ededed;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center
+		}
+
+		.title h2 span {
+			background-color: #fff;
+			padding: 0 10px;
+			margin-top: -12px;
+			font-family: 'SF Pro Text';
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 24px;
+			color: #333
+		}
+
+		.title h3 {
+			margin-top: 8px;
+			font-family: 'SF Pro Text';
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 16px;
+			color: #989898
+		}
+
+		.login-container .title {
+			margin-top: 100px
+		}
+
+		.register-container .mat-form-field:nth-child(2) {
+			padding-left: 16px;
+			font-size: 14px
+		}
+
+		@media (max-width:575px) {
+			.mat-column-form {
+				padding: 15px
+			}
+
+			.mat-button {
+				padding: 9px 0;
+				width: 100%;
+				margin-left: 8px;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				height: 36px
+			}
+
+			.mat-button img {
+				margin: 0 8px
+			}
+
+			.headerText {
+				display: none
+			}
+
+			.dergilik-theme,
+			.gazetemanset-theme,
+			.gztcom-theme,
+			.nedersiniz-theme,
+			.piriid-theme,
+			.tvnet-theme,
+			.yenisafak-theme,
+			.yenisafakar-theme,
+			.yenisafaken-theme {
+				background: #fff
+			}
+
+			.mat-toolbar {
+				padding: 0 15px
+			}
+
+			body {
+				background: #fff
+			}
+
+			.account-content {
+				padding: 16px 12px
+			}
+
+			.account-header h1 {
+				font-size: 18px
+			}
+
+			.account-header .mat-button {
+				min-width: 52px
+			}
+
+			.login-container,
+			.register-container {
+				padding: 0 !important
+			}
+
+			.login-container .mat-column-form,
+			.login-container .mat-column-social,
+			.register-container .mat-column-form,
+			.register-container .mat-column-social {
+				max-width: 100%;
+				padding: 15px
+			}
+
+			.login-container .mat-column-social .mat-raised-button,
+			.register-container .mat-column-social .mat-raised-button {
+				max-width: 228px
+			}
+
+			.mat-button,
+			.mat-fab,
+			.mat-icon-button,
+			.mat-mini-fab,
+			.mat-raised-button {
+				font-size: 13px
+			}
+		}
+
+		@media (min-width:576px) and (max-width:767px) {
+			.account-content {
+				padding: 24px 18px
+			}
+		}
+
+		@media (min-width:768px) and (max-width:991px) {
+			.account-content {
+				padding: 32px 24px
+			}
+		}
+
+		@media (min-width:992px) and (max-width:1199px) {
+			.account-content {
+				padding: 40px 30px
+			}
+		}
+
+		@media (min-width:1200px) {
+			.account-content {
+				padding: 48px 36px
+			}
+		}
+	</style>
+	<style type="text/css">
+		@media screen and (max-width: 599px) {
+			.fx-query-test {}
+		}
+	</style>
+	<style type="text/css">
+		@media screen and (min-width: 600px) {
+			.fx-query-test {}
+		}
+	</style>
+	<style type="text/css">
+		@media screen and (min-width: 600px) and (max-width: 959px) {
+			.fx-query-test {}
+		}
+	</style>
+	<style type="text/css">
+		@media screen and (min-width: 960px) {
+			.fx-query-test {}
+		}
+	</style>
+	<style type="text/css">
+		@media screen and (min-width: 960px) and (max-width: 1279px) {
+			.fx-query-test {}
+		}
+	</style>
+	<style type="text/css">
+		@media screen and (min-width: 1280px) {
+			.fx-query-test {}
+		}
+	</style>
+	<style type="text/css">
+		@media screen and (min-width: 1280px) and (max-width: 1919px) {
+			.fx-query-test {}
+		}
+	</style>
+	<style type="text/css">
+		@media screen and (min-width: 1920px) {
+			.fx-query-test {}
+		}
+	</style>
+	<style type="text/css">
+		@media screen and (min-width: 1920px) and (max-width: 5000px) {
+			.fx-query-test {}
+		}
+	</style>
+	<style>
+		.logo-piriid[_ngcontent-c1]:before {
+			background-image: url(/assets/img/logo-piriid.svg)
+		}
+
+		.logo-yenisafak[_ngcontent-c1]:before {
+			background-image: url(/assets/img/logo-yenisafak.svg)
+		}
+
+		.logo-yenisafaken[_ngcontent-c1]:before {
+			background-image: url(/assets/img/logo-yenisafaken.svg)
+		}
+
+		.logo-yenisafakar[_ngcontent-c1]:before {
+			background-image: url(/assets/img/logo-yenisafakar.svg)
+		}
+
+		.logo-gztcom[_ngcontent-c1]:before {
+			background-image: url(/assets/img/logo-gztcom.svg)
+		}
+
+		.logo-tvnet[_ngcontent-c1]:before {
+			background-image: url(/assets/img/logo-tvnet.svg)
+		}
+
+		.logo-nedersiniz[_ngcontent-c1]:before {
+			background-image: url(/assets/img/logo-nedersiniz.svg)
+		}
+
+		.logo-gazetemanset[_ngcontent-c1]:before {
+			background-image: url(/assets/img/logo-gazetemanset.svg)
+		}
+
+		.logo-dergilik[_ngcontent-c1]:before {
+			background-image: url(/assets/img/logo-dergilik.svg)
+		}
+
+		[class^=logo-][_ngcontent-c1]:before {
+			content: "";
+			display: block;
+			background-repeat: no-repeat;
+			background-position: center left;
+			background-size: contain;
+			width: 100%;
+			height: 100%
+		}
+
+		.mat-toolbar[_ngcontent-c1] {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+			color: #333;
+			background: #fff;
+			padding: 0 5%;
+			min-height: 56px
+		}
+
+		.mat-toolbar[_ngcontent-c1] .mat-toolbar-row {
+			height: 56px !important
+		}
+
+		.mat-toolbar[_ngcontent-c1] .logo[_ngcontent-c1] {
+			display: inline-block;
+			margin: 16px 0;
+			height: 32px
+		}
+
+		.mat-toolbar[_ngcontent-c1] .logo[_ngcontent-c1] i[_ngcontent-c1] {
+			display: inline-block;
+			height: 32px;
+			min-width: 240px
+		}
+
+		.mat-toolbar[_ngcontent-c1] .logo[_ngcontent-c1] img[_ngcontent-c1] {
+			display: inline-block;
+			height: 32px;
+			width: auto
+		}
+
+		.mat-toolbar[_ngcontent-c1] a.headerText[_ngcontent-c1] {
+			font-family: SF Pro Text;
+			font-style: normal;
+			font-weight: 600;
+			font-size: 14px;
+			line-height: 16px;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			text-decoration: none;
+			color: #333
+		}
+
+		.mat-toolbar[_ngcontent-c1] .language-button[_ngcontent-c1] {
+			margin-right: 10px
+		}
+
+		.mat-card[_ngcontent-c1] {
+			background: #fff;
+			border-bottom: 1px solid #eee;
+			padding: 16px
+		}
+
+		.mat-card[_ngcontent-c1] .avatar-image[_ngcontent-c1] {
+			background-size: cover;
+			border: 3px solid #dedede
+		}
+
+		.mat-card[_ngcontent-c1] .mat-card-subtitle[_ngcontent-c1],
+		.mat-card[_ngcontent-c1] .mat-card-title[_ngcontent-c1] {
+			margin: 4px 0
+		}
+
+		.exit[_ngcontent-c1] {
+			border-top: 1px solid #eee
+		}
+	</style>
+	<style>
+		.mat-toolbar {
+			display: flex;
+			box-sizing: border-box;
+			width: 100%;
+			padding: 0 16px;
+			flex-direction: column
+		}
+
+		.mat-toolbar .mat-toolbar-row {
+			display: flex;
+			box-sizing: border-box;
+			width: 100%;
+			flex-direction: row;
+			align-items: center;
+			white-space: nowrap
+		}
+
+		.mat-toolbar {
+			min-height: 64px
+		}
+
+		.mat-toolbar-row {
+			height: 64px
+		}
+
+		@media (max-width:600px) {
+			.mat-toolbar {
+				min-height: 56px
+			}
+
+			.mat-toolbar-row {
+				height: 56px
+			}
+		}
+	</style>
+	<style>
+		.login-container[_ngcontent-c6] {
+			padding: 30px 0
+		}
+
+		.login-container[_ngcontent-c6]>*[_ngcontent-c6] {
+			width: 439px
+		}
+
+		.login-container[_ngcontent-c6] .mat-form-field[_ngcontent-c6] {
+			width: 100%
+		}
+
+		@media (max-width:575px) {
+			.login-container[_ngcontent-c6]>*[_ngcontent-c6] {
+				height: calc(100vh - 56px) !important;
+				-webkit-box-pack: justify !important;
+				-ms-flex-pack: justify !important;
+				justify-content: space-between !important
+			}
+		}
+	</style>
+	<style>
+		.mat-form-field {
+			display: inline-block;
+			position: relative;
+			text-align: left
+		}
+
+		[dir=rtl] .mat-form-field {
+			text-align: right
+		}
+
+		.mat-form-field-wrapper {
+			position: relative
+		}
+
+		.mat-form-field-flex {
+			display: inline-flex;
+			align-items: baseline;
+			width: 100%
+		}
+
+		.mat-form-field-prefix,
+		.mat-form-field-suffix {
+			white-space: nowrap;
+			flex: none
+		}
+
+		.mat-form-field-prefix .mat-icon,
+		.mat-form-field-suffix .mat-icon {
+			width: 1em
+		}
+
+		.mat-form-field-prefix .mat-icon-button,
+		.mat-form-field-suffix .mat-icon-button {
+			font: inherit;
+			vertical-align: baseline
+		}
+
+		.mat-form-field-prefix .mat-icon-button .mat-icon,
+		.mat-form-field-suffix .mat-icon-button .mat-icon {
+			font-size: inherit
+		}
+
+		.mat-form-field-infix {
+			display: block;
+			position: relative;
+			flex: auto;
+			min-width: 0
+		}
+
+		.mat-form-field-placeholder-wrapper {
+			position: absolute;
+			left: 0;
+			box-sizing: content-box;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			pointer-events: none
+		}
+
+		.mat-form-field-placeholder {
+			position: absolute;
+			left: 0;
+			font: inherit;
+			pointer-events: none;
+			width: 100%;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			transform: perspective(100px);
+			-ms-transform: none;
+			transform-origin: 0 0;
+			transition: transform .4s cubic-bezier(.25, .8, .25, 1), color .4s cubic-bezier(.25, .8, .25, 1), width .4s cubic-bezier(.25, .8, .25, 1);
+			display: none
+		}
+
+		[dir=rtl] .mat-form-field-placeholder {
+			transform-origin: 100% 0;
+			left: auto;
+			right: 0
+		}
+
+		.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder,
+		.mat-form-field-empty.mat-form-field-placeholder {
+			display: block
+		}
+
+		.mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-placeholder-wrapper .mat-form-field-placeholder {
+			display: none
+		}
+
+		.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-placeholder-wrapper .mat-form-field-placeholder {
+			display: block;
+			transition: none
+		}
+
+		.mat-form-field-placeholder:not(.mat-form-field-empty) {
+			transition: none
+		}
+
+		.mat-form-field-underline {
+			position: absolute;
+			height: 1px;
+			width: 100%
+		}
+
+		.mat-form-field-underline.mat-disabled {
+			background-position: 0;
+			background-color: transparent
+		}
+
+		.mat-form-field-underline .mat-form-field-ripple {
+			position: absolute;
+			height: 1px;
+			top: 0;
+			left: 0;
+			width: 100%;
+			transform-origin: 50%;
+			transform: scaleX(.5);
+			visibility: hidden;
+			transition: background-color .3s cubic-bezier(.55, 0, .55, .2)
+		}
+
+		.mat-focused .mat-form-field-underline .mat-form-field-ripple {
+			height: 2px
+		}
+
+		.mat-focused .mat-form-field-underline .mat-form-field-ripple,
+		.mat-form-field-invalid .mat-form-field-underline .mat-form-field-ripple {
+			visibility: visible;
+			transform: scaleX(1);
+			transition: transform 150ms linear, background-color .3s cubic-bezier(.55, 0, .55, .2)
+		}
+
+		.mat-form-field-subscript-wrapper {
+			position: absolute;
+			width: 100%;
+			overflow: hidden
+		}
+
+		.mat-form-field-placeholder-wrapper .mat-icon,
+		.mat-form-field-subscript-wrapper .mat-icon {
+			width: 1em;
+			height: 1em;
+			font-size: inherit;
+			vertical-align: baseline
+		}
+
+		.mat-form-field-hint-wrapper {
+			display: flex
+		}
+
+		.mat-form-field-hint-spacer {
+			flex: 1 0 1em
+		}
+
+		.mat-error {
+			display: block
+		}
+	</style>
+	<style>
+		.mat-input-element {
+			font: inherit;
+			background: 0 0;
+			color: currentColor;
+			border: none;
+			outline: 0;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			max-width: 100%;
+			vertical-align: bottom
+		}
+
+		.mat-input-element:-moz-ui-invalid {
+			box-shadow: none
+		}
+
+		.mat-input-element::placeholder {
+			color: transparent !important
+		}
+
+		.mat-input-element::-moz-placeholder {
+			color: transparent !important
+		}
+
+		.mat-input-element::-webkit-input-placeholder {
+			color: transparent !important
+		}
+
+		.mat-input-element:-ms-input-placeholder {
+			color: transparent !important
+		}
+
+		textarea.mat-input-element {
+			resize: vertical;
+			overflow: auto
+		}
+	</style>
+	<style>
+		.mat-button,
+		.mat-fab,
+		.mat-icon-button,
+		.mat-mini-fab,
+		.mat-raised-button {
+			box-sizing: border-box;
+			position: relative;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			cursor: pointer;
+			outline: 0;
+			border: none;
+			-webkit-tap-highlight-color: transparent;
+			display: inline-block;
+			white-space: nowrap;
+			text-decoration: none;
+			vertical-align: baseline;
+			text-align: center;
+			margin: 0;
+			min-width: 88px;
+			line-height: 36px;
+			padding: 0 16px;
+			border-radius: 2px
+		}
+
+		[disabled].mat-button,
+		[disabled].mat-fab,
+		[disabled].mat-icon-button,
+		[disabled].mat-mini-fab,
+		[disabled].mat-raised-button {
+			cursor: default
+		}
+
+		.cdk-keyboard-focused.mat-button .mat-button-focus-overlay,
+		.cdk-keyboard-focused.mat-fab .mat-button-focus-overlay,
+		.cdk-keyboard-focused.mat-icon-button .mat-button-focus-overlay,
+		.cdk-keyboard-focused.mat-mini-fab .mat-button-focus-overlay,
+		.cdk-keyboard-focused.mat-raised-button .mat-button-focus-overlay {
+			opacity: 1
+		}
+
+		.mat-button::-moz-focus-inner,
+		.mat-fab::-moz-focus-inner,
+		.mat-icon-button::-moz-focus-inner,
+		.mat-mini-fab::-moz-focus-inner,
+		.mat-raised-button::-moz-focus-inner {
+			border: 0
+		}
+
+		.mat-fab,
+		.mat-mini-fab,
+		.mat-raised-button {
+			transform: translate3d(0, 0, 0);
+			transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1)
+		}
+
+		.mat-fab:not([class*=mat-elevation-z]),
+		.mat-mini-fab:not([class*=mat-elevation-z]),
+		.mat-raised-button:not([class*=mat-elevation-z]) {
+			box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+		}
+
+		.mat-fab:not([disabled]):active:not([class*=mat-elevation-z]),
+		.mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]),
+		.mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]) {
+			box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12)
+		}
+
+		[disabled].mat-fab,
+		[disabled].mat-mini-fab,
+		[disabled].mat-raised-button {
+			box-shadow: none
+		}
+
+		.mat-button .mat-button-focus-overlay,
+		.mat-icon-button .mat-button-focus-overlay {
+			transition: none;
+			opacity: 0
+		}
+
+		.mat-button:hover .mat-button-focus-overlay {
+			opacity: 1
+		}
+
+		.mat-fab {
+			min-width: 0;
+			border-radius: 50%;
+			width: 56px;
+			height: 56px;
+			padding: 0;
+			flex-shrink: 0
+		}
+
+		.mat-fab:not([class*=mat-elevation-z]) {
+			box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12)
+		}
+
+		.mat-fab:not([disabled]):active:not([class*=mat-elevation-z]) {
+			box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12)
+		}
+
+		.mat-fab .mat-button-wrapper {
+			padding: 16px 0;
+			display: inline-block;
+			line-height: 24px
+		}
+
+		.mat-mini-fab {
+			min-width: 0;
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			padding: 0;
+			flex-shrink: 0
+		}
+
+		.mat-mini-fab:not([class*=mat-elevation-z]) {
+			box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12)
+		}
+
+		.mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]) {
+			box-shadow: 0 7px 8px -4px rgba(0, 0, 0, .2), 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12)
+		}
+
+		.mat-mini-fab .mat-button-wrapper {
+			padding: 8px 0;
+			display: inline-block;
+			line-height: 24px
+		}
+
+		.mat-icon-button {
+			padding: 0;
+			min-width: 0;
+			width: 40px;
+			height: 40px;
+			flex-shrink: 0;
+			line-height: 40px;
+			border-radius: 50%
+		}
+
+		.mat-icon-button .mat-icon,
+		.mat-icon-button i {
+			line-height: 24px
+		}
+
+		.mat-button,
+		.mat-icon-button,
+		.mat-raised-button {
+			color: currentColor
+		}
+
+		.mat-button .mat-button-wrapper>*,
+		.mat-icon-button .mat-button-wrapper>*,
+		.mat-raised-button .mat-button-wrapper>* {
+			vertical-align: middle
+		}
+
+		.mat-button-focus-overlay,
+		.mat-button-ripple {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			position: absolute;
+			pointer-events: none
+		}
+
+		.mat-button-focus-overlay {
+			background-color: rgba(0, 0, 0, .12);
+			border-radius: inherit;
+			opacity: 0;
+			transition: opacity .2s cubic-bezier(.35, 0, .25, 1), background-color .2s cubic-bezier(.35, 0, .25, 1)
+		}
+
+		@media screen and (-ms-high-contrast:active) {
+			.mat-button-focus-overlay {
+				background-color: rgba(255, 255, 255, .5)
+			}
+		}
+
+		.mat-button-ripple-round {
+			border-radius: 50%;
+			z-index: 1
+		}
+
+		@media screen and (-ms-high-contrast:active) {
+
+			.mat-button,
+			.mat-fab,
+			.mat-icon-button,
+			.mat-mini-fab,
+			.mat-raised-button {
+				outline: solid 1px
+			}
+		}
+	</style>
+	<style>
+		.social-media-buttons[_ngcontent-c8] {
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+			-webkit-box-orient: horizontal !important;
+			-webkit-box-direction: normal !important;
+			-ms-flex-direction: row !important;
+			flex-direction: row !important;
+			-webkit-box-align: start;
+			-ms-flex-align: start;
+			align-items: flex-start
+		}
+
+		.social-media-buttons[_ngcontent-c8] .mat-button[_ngcontent-c8] {
+			padding: 9px 0;
+			width: 100%;
+			margin-left: 8px;
+			margin-bottom: 0 !important;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			height: 36px
+		}
+
+		.social-media-buttons[_ngcontent-c8] .mat-button[_ngcontent-c8] img[_ngcontent-c8] {
+			margin: 0 8px
+		}
+
+		.social-media-buttons[_ngcontent-c8] .mat-button[_ngcontent-c8]:first-child {
+			-webkit-box-ordinal-group: 2;
+			-ms-flex-order: 1;
+			order: 1
+		}
+
+		.social-media-buttons[_ngcontent-c8] .mat-button[_ngcontent-c8]:first-child img[_ngcontent-c8] {
+			margin-left: 12px
+		}
+
+		.social-media-buttons[_ngcontent-c8] .mat-button[_ngcontent-c8]:nth-child(2) {
+			margin-left: 0
+		}
+
+		button[_ngcontent-c8] {
+			max-width: 300px;
+			color: #fff;
+			border-radius: 5px !important;
+			margin-bottom: 0
+		}
+
+		button[_ngcontent-c8] mat-icon[_ngcontent-c8] {
+			margin-right: 10px
+		}
+
+		button[id=register][_ngcontent-c8] {
+			background: #3897f0
+		}
+
+		button[id="facebook.com"][_ngcontent-c8] {
+			background: #1777f1
+		}
+
+		button[id="twitter.com"][_ngcontent-c8] {
+			background: #1ca0f0
+		}
+
+		button[id="google.com"][_ngcontent-c8] {
+			background: #ea4335
+		}
+
+		.mat-column-form span {
+			line-height: 16px
+		}
+	</style>
+</head>
+
+<body>
+	<app-root ng-version="4.4.7">
+		<div fxlayout="column"
+			style="display: flex; box-sizing: border-box; flex-direction: column; -moz-box-orient: vertical; -moz-box-direction: normal;"
+			class="yenisafak-theme pid-main">
+			<!---->
+			<pid-header _nghost-c1="">
+				<mat-toolbar _ngcontent-c1="" class="mat-toolbar" role="toolbar">
+					<div class="mat-toolbar-layout">
+						<mat-toolbar-row class="mat-toolbar-row">
+							<a _ngcontent-c1="" class="logo" href="https://www.yenisafak.com/">
+								<img _ngcontent-c1="" alt="PiriNet" src="/assets/img/logo-yenisafak.svg">
+							</a>
+							<span _ngcontent-c1="" fxflex=""
+								style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1;"></span>
+
+							<!---->
+
+							<!---->
+
+							<!---->
+
+							<!----><a _ngcontent-c1="" class="headerText" href="/yenisafak/auth/register">
+								Kayıt Ol
+							</a>
+
+						</mat-toolbar-row>
+					</div>
+				</mat-toolbar>
+			</pid-header>
+
+			<div class="pid-content" fxflex="" fxlayout="column"
+				style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1; display: flex; flex-direction: column; -moz-box-orient: vertical; -moz-box-direction: normal;">
+				<!---->
+				<router-outlet></router-outlet>
+				<login _nghost-c6="" class="">
+					<div _ngcontent-c6="" class="auth-container login-container" fxflex="" fxlayout="row wrap"
+						fxlayoutalign="center start"
+						style="box-sizing: border-box; flex: 1 1 1e-9px; -moz-box-flex: 1; display: flex; flex-direction: row; -moz-box-orient: horizontal; -moz-box-direction: normal; place-content: flex-start center; align-items: flex-start; -moz-box-pack: center; -moz-box-align: start;">
+
+
+
+						<div _ngcontent-c6="" class="mat-column-form" fxlayout="column"
+							style="display: flex; box-sizing: border-box; flex-direction: column; -moz-box-orient: vertical; -moz-box-direction: normal;">
+							<form _ngcontent-c6="" fxlayout="column" novalidate=""
+								style="display: flex; box-sizing: border-box; flex-direction: column; -moz-box-orient: vertical; -moz-box-direction: normal;"
+								class="ng-untouched ng-pristine ng-invalid" data-bitwarden-watching="1">
+
+								<div _ngcontent-c6="" class="profile">
+									<h2 _ngcontent-c6="">Giriş Yap</h2>
+								</div>
+
+								<div _ngcontent-c6="" class="login-or-register">
+									Hesabınız Yok mu? <a _ngcontent-c6="" routerlink="/auth/register"
+										href="/register">Kayıt Ol</a>
+								</div>
+
+								<mat-form-field _ngcontent-c6=""
+									class="mat-input-container mat-form-field ng-tns-c7-0 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-invalid"
+									fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1;">
+									<div class="mat-input-wrapper mat-form-field-wrapper">
+										<div class="mat-input-flex mat-form-field-flex">
+											<!---->
+											<div class="mat-input-infix mat-form-field-infix">
+												<label _ngcontent-c6="">E-posta</label>
+												<input _ngcontent-c6=""
+													class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-invalid"
+													formcontrolname="email" matinput="" type="email" id="mat-input-0"
+													placeholder="" aria-invalid="false" th:field="*{email}">
+
+												<span
+													class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper">
+													<!----></span></div>
+											<!---->
+										</div>
+										<div class="mat-input-underline mat-form-field-underline"><span
+												class="mat-input-ripple mat-form-field-ripple"></span></div>
+										<div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper">
+											<!---->
+											<!---->
+											<div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c7-0 ng-trigger ng-trigger-transitionMessages"
+												style="opacity: 1; transform: translateY(0%);">
+												<!---->
+												<div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div>
+											</div>
+										</div>
+									</div>
+								</mat-form-field>
+
+								<mat-form-field _ngcontent-c6=""
+									class="mat-input-container mat-form-field ng-tns-c7-1 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-invalid"
+									fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1;">
+									<div class="mat-input-wrapper mat-form-field-wrapper">
+										<div class="mat-input-flex mat-form-field-flex">
+											<!---->
+											<div class="mat-input-infix mat-form-field-infix">
+												<label _ngcontent-c6="">Şifre</label>
+												<input _ngcontent-c6=""
+													class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-invalid"
+													formcontrolname="password" matinput="" type="password"
+													id="mat-input-1" placeholder="" aria-invalid="false" th:field="*{password}">
+
+												<span
+													class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper">
+													<!----></span></div>
+											<!---->
+										</div>
+										<div class="mat-input-underline mat-form-field-underline"><span
+												class="mat-input-ripple mat-form-field-ripple"></span></div>
+										<div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper">
+											<!---->
+											<!---->
+											<div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c7-1 ng-trigger ng-trigger-transitionMessages"
+												style="opacity: 1; transform: translateY(0%);">
+												<!---->
+												<div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div>
+											</div>
+										</div>
+									</div>
+								</mat-form-field>
+
+								<!---->
+
+								<div _ngcontent-c6="" fxlayout="row" fxlayoutalign="space-between center info"
+									style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; -moz-box-orient: horizontal; -moz-box-direction: normal; place-content: center space-between; align-items: center; -moz-box-align: center;">
+									<div _ngcontent-c6="" class="forgot">
+										
+									</div>
+
+									<button _ngcontent-c6="" class="form-button mat-raised-button mat-primary"
+										color="primary" mat-raised-button="" type="submit"><span
+											class="mat-button-wrapper">Giriş Yap</span>
+										<div class="mat-button-ripple mat-ripple" matripple=""></div>
+										<div class="mat-button-focus-overlay"></div>
+									</button>
+								</div>
+
+
+							</form>
+
+
+
+							<pid-social-providers _ngcontent-c6="" _nghost-c8="">
+								<div _ngcontent-c8="" class="title">
+
+									<h2 _ngcontent-c8="">
+										<span _ngcontent-c8="">Tek Hesap</span>
+										<i _ngcontent-c8="" class="icon-piriid"></i>
+									</h2>
+									<h3 _ngcontent-c8="">Sosyal ağ hesaplarınızla tek tıkla giriş yapın.</h3>
+								</div>
+
+								<div _ngcontent-c8="" class="social-media-buttons" fxlayout="column" fxlayoutgap="15px"
+									style="display: flex; box-sizing: border-box; flex-direction: column; -moz-box-orient: vertical; -moz-box-direction: normal;">
+									<!----><button _ngcontent-c8="" class="mat-button" mat-button="" id="facebook.com"
+										style="margin-bottom: 15px;"><span class="mat-button-wrapper">
+											<img _ngcontent-c8="" src="https://piri.net/assets/img/facebook.svg" alt="Facebook">
+											<span _ngcontent-c8="">Facebook</span>
+										</span>
+										<div class="mat-button-ripple mat-ripple" matripple=""></div>
+										<div class="mat-button-focus-overlay"></div>
+									</button><button _ngcontent-c8="" class="mat-button" mat-button="" id="google.com"
+										style="margin-bottom: 15px;"><span class="mat-button-wrapper">
+											<img _ngcontent-c8="" src="https://piri.net/assets/img/google.svg" alt="Google">
+											<span _ngcontent-c8="">Google</span>
+										</span>
+										<div class="mat-button-ripple mat-ripple" matripple=""></div>
+										<div class="mat-button-focus-overlay"></div>
+									</button><button _ngcontent-c8="" class="mat-button" mat-button=""
+										id="twitter.com"><span class="mat-button-wrapper">
+											<img _ngcontent-c8="" src="https://piri.net/assets/img/twitter.svg" alt="Twitter">
+											<span _ngcontent-c8="">Twitter</span>
+										</span>
+										<div class="mat-button-ripple mat-ripple" matripple=""></div>
+										<div class="mat-button-focus-overlay"></div>
+									</button>
+								</div>
+							</pid-social-providers>
+						</div>
+
+					</div>
+
+
+				</login>
+
+			</div>
+
+		</div>
+
+
+
+
+
+
+	</app-root>
+</body>
+
+</html>

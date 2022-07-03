@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<title>piri.net</title>
+	<base href="/yenisafak">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-KNN8VHW"></script>
+	
+
+
+</head>
+
+<body>
+	<app-root ng-version="4.4.7">
+		<div fxlayout="column"
+			style="display: flex; box-sizing: border-box; flex-direction: column; -moz-box-orient: vertical; -moz-box-direction: normal;"
+			class="yenisafak-theme pid-main">
+			<!---->
+			<pid-header _nghost-c1="">
+				<mat-toolbar _ngcontent-c1="" class="mat-toolbar" role="toolbar">
+					<div class="mat-toolbar-layout">
+						<mat-toolbar-row class="mat-toolbar-row">
+							<a _ngcontent-c1="" class="logo" href="https://www.yenisafak.com/">
+								<img _ngcontent-c1="" alt="PiriNet"
+									src="https://piri.net/assets/img/logo-yenisafak.svg">
+							</a>
+							<span _ngcontent-c1="" fxflex=""
+								style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1;"></span>
+
+							<!---->
+
+							<!---->
+
+							<!---->
+
+							<!----><a _ngcontent-c1="" class="headerText"  th:href="@{/login}">
+								Giriş Yap
+							</a>
+
+						</mat-toolbar-row>
+					</div>
+				</mat-toolbar>
+			</pid-header>
+
+			<div class="pid-content" fxflex="" fxlayout="column"
+				style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1; display: flex; flex-direction: column; -moz-box-orient: vertical; -moz-box-direction: normal;">
+				<!---->
+				<router-outlet></router-outlet>
+				<register _nghost-c6="" class="">
+
+					<div _ngcontent-c6="" class="auth-container register-container" fxflex="" fxlayout="row wrap"
+						fxlayoutalign="center start"
+						style="box-sizing: border-box; flex: 1 1 1e-9px; -moz-box-flex: 1; display: flex; flex-direction: row; -moz-box-orient: horizontal; -moz-box-direction: normal; place-content: flex-start center; align-items: flex-start; -moz-box-pack: center; -moz-box-align: start;">
+
+
+						<div _ngcontent-c6="" class="mat-column-form" fxlayout="column"
+							style="display: flex; box-sizing: border-box; flex-direction: column; -moz-box-orient: vertical; -moz-box-direction: normal;">
+							<form _ngcontent-c6="" fxlayout="column" novalidate=""
+								style="display: flex; box-sizing: border-box; flex-direction: column; -moz-box-orient: vertical; -moz-box-direction: normal;"
+								class="ng-untouched ng-pristine ng-invalid" data-bitwarden-watching="1"th:action="@{/process_register}" th:object="${user}" 
+								method="post" style="max-width: 600px; margin: 0 auto;">
+
+								<div _ngcontent-c6="" class="profile">
+									<h2 _ngcontent-c6="">Yeni Hesap Oluştur</h2>
+								</div>
+
+								<div _ngcontent-c6="" class="login-or-register">
+									Hesabınız var mı? <a _ngcontent-c6="" th:href="@{/login}">Giriş
+										Yap</a>
+								</div>
+
+								<mat-form-field _ngcontent-c6=""
+									class="mat-input-container mat-form-field ng-tns-c7-0 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-invalid"
+									fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1;">
+									<div class="mat-input-wrapper mat-form-field-wrapper">
+										<div class="mat-input-flex mat-form-field-flex">
+											<!---->
+											<div class="mat-input-infix mat-form-field-infix">
+												<label _ngcontent-c6="">E-posta</label>
+												<input _ngcontent-c6=""
+													class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-invalid"
+													th:field="*{email}" formcontrolname="email" matinput="" type="email"
+													id="mat-input-0" placeholder="" aria-invalid="false">
+												<span
+													class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper">
+													<!----></span></div>
+											<!---->
+										</div>
+										<div class="mat-input-underline mat-form-field-underline"><span
+												class="mat-input-ripple mat-form-field-ripple"></span></div>
+										<div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper">
+											<!---->
+											<!---->
+											<div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c7-0 ng-trigger ng-trigger-transitionMessages"
+												style="opacity: 1; transform: translateY(0%);">
+												<!---->
+												<div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div>
+											</div>
+										</div>
+									</div>
+								</mat-form-field>
+
+
+								<div _ngcontent-c6="" fxlayout="row" fxlayoutalign="space-between center"
+									style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; -moz-box-orient: horizontal; -moz-box-direction: normal; place-content: center space-between; align-items: center; -moz-box-align: center;">
+									<mat-form-field _ngcontent-c6=""
+										class="mat-input-container mat-form-field ng-tns-c7-1 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-invalid"
+										fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1;">
+										<div class="mat-input-wrapper mat-form-field-wrapper">
+											<div class="mat-input-flex mat-form-field-flex">
+												<!---->
+												<div class="mat-input-infix mat-form-field-infix">
+													<label _ngcontent-c6="">Adınız</label>
+													<input _ngcontent-c6=""
+														class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-invalid"
+														th:field="*{firstName}" formcontrolname="firstName" matinput=""
+														type="text" id="mat-input-1" placeholder=""
+														aria-invalid="false">
+
+													<span
+														class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper">
+														<!----></span></div>
+												<!---->
+											</div>
+											<div class="mat-input-underline mat-form-field-underline"><span
+													class="mat-input-ripple mat-form-field-ripple"></span></div>
+											<div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper">
+												<!---->
+												<!---->
+												<div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c7-1 ng-trigger ng-trigger-transitionMessages"
+													style="opacity: 1; transform: translateY(0%);">
+													<!---->
+													<div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div>
+												</div>
+											</div>
+										</div>
+									</mat-form-field>
+
+									<mat-form-field _ngcontent-c6=""
+										class="mat-input-container mat-form-field ng-tns-c7-2 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-invalid"
+										fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1;">
+										<div class="mat-input-wrapper mat-form-field-wrapper">
+											<div class="mat-input-flex mat-form-field-flex">
+												<!---->
+												<div class="mat-input-infix mat-form-field-infix">
+													<label _ngcontent-c6="">Soyadınız</label>
+													<input _ngcontent-c6=""
+														class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-invalid"
+														th:field="*{lastName}" formcontrolname="lastName" matinput=""
+														type="text" id="mat-input-2" placeholder=""
+														aria-invalid="false">
+
+													<span
+														class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper">
+														<!----></span></div>
+												<!---->
+											</div>
+											<div class="mat-input-underline mat-form-field-underline"><span
+													class="mat-input-ripple mat-form-field-ripple"></span></div>
+											<div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper">
+												<!---->
+												<!---->
+												<div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c7-2 ng-trigger ng-trigger-transitionMessages"
+													style="opacity: 1; transform: translateY(0%);">
+													<!---->
+													<div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div>
+												</div>
+											</div>
+										</div>
+									</mat-form-field>
+								</div>
+
+								<!---->
+
+								<mat-form-field _ngcontent-c6=""
+									class="mat-input-container mat-form-field ng-tns-c7-3 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-invalid"
+									fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1;">
+									<div class="mat-input-wrapper mat-form-field-wrapper">
+										<div class="mat-input-flex mat-form-field-flex">
+											<!---->
+											<div class="mat-input-infix mat-form-field-infix">
+												<label _ngcontent-c6="">Şifreniz</label>
+												<input _ngcontent-c6=""
+													class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-invalid"
+													th:field="*{password}" formcontrolname="newPassword" matinput=""
+													type="password" id="mat-input-3" placeholder=""
+													aria-invalid="false">
+
+
+												<span
+													class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper">
+													<!----></span></div>
+											<!---->
+										</div>
+										<div class="mat-input-underline mat-form-field-underline"><span
+												class="mat-input-ripple mat-form-field-ripple"></span></div>
+										<div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper">
+											<!---->
+											<!---->
+											<div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c7-3 ng-trigger ng-trigger-transitionMessages"
+												style="opacity: 1; transform: translateY(0%);">
+												<!---->
+												<div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div>
+											</div>
+										</div>
+									</div>
+								</mat-form-field>
+
+								<mat-form-field _ngcontent-c6=""
+									class="mat-input-container mat-form-field ng-tns-c7-4 mat-form-field-type-mat-input mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-valid"
+									fxflex="" style="flex: 1 1 1e-9px; box-sizing: border-box; -moz-box-flex: 1;">
+									<div class="mat-input-wrapper mat-form-field-wrapper">
+										<div class="mat-input-flex mat-form-field-flex">
+											<!---->
+											<div class="mat-input-infix mat-form-field-infix">
+												<label _ngcontent-c6="">Şifreniz (tekrar)</label>
+												<input _ngcontent-c6=""
+													class="mat-input-element mat-form-field-autofill-control ng-untouched ng-pristine ng-valid"
+													formcontrolname="confirmedPassword" matinput="" type="password"
+													id="mat-input-4" placeholder="" aria-invalid="false"
+													th:field="*{password}">
+
+
+												<span
+													class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper">
+													<!----></span></div>
+											<!---->
+										</div>
+										<div class="mat-input-underline mat-form-field-underline"><span
+												class="mat-input-ripple mat-form-field-ripple"></span></div>
+										<div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper">
+											<!---->
+											<!---->
+											<div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c7-4 ng-trigger ng-trigger-transitionMessages"
+												style="opacity: 1; transform: translateY(0%);">
+												<!---->
+												<div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div>
+											</div>
+										</div>
+									</div>
+								</mat-form-field>
+
+
+
+								<div _ngcontent-c6="" fxlayout="row" fxlayoutalign="space-between center"
+									style="box-sizing: border-box; max-height: 100%; display: flex; flex-direction: row; -moz-box-orient: horizontal; -moz-box-direction: normal; place-content: center space-between; align-items: center; -moz-box-align: center;">
+
+									<mat-checkbox _ngcontent-c6=""
+										class="mat-checkbox mat-accent ng-untouched ng-pristine ng-valid"
+										id="mat-checkbox-1"><label class="mat-checkbox-layout"
+											for="mat-checkbox-1-input">
+											<div class="mat-checkbox-inner-container"><input
+													class="mat-checkbox-input cdk-visually-hidden" type="checkbox"
+													id="mat-checkbox-1-input" tabindex="0" aria-label="">
+												<div class="mat-checkbox-ripple mat-ripple" matripple=""></div>
+												<div class="mat-checkbox-frame"></div>
+												<div class="mat-checkbox-background"><svg xml:space="preserve"
+														class="mat-checkbox-checkmark" focusable="false" version="1.1"
+														viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+														<path class="mat-checkbox-checkmark-path"
+															d="M4.1,12.7 9,17.6 20.3,6.3" fill="none" stroke="white">
+														</path>
+													</svg>
+													<div class="mat-checkbox-mixedmark"></div>
+												</div>
+											</div><span class="mat-checkbox-label"><span
+													style="display:none">&nbsp;</span>
+												<small _ngcontent-c6="">
+													Piri Medya <a _ngcontent-c6="" href="/info/terms"
+														target="_blank">Kullanım Koşulları</a>'nı ve <a _ngcontent-c6=""
+														href="/info/privacy" target="_blank">Gizlilik Politikası</a>'nı
+													okudum, kabul ediyorum.
+												</small>
+											</span>
+										</label></mat-checkbox>
+
+									<button _ngcontent-c6="" class="form-button mat-raised-button mat-primary"
+										color="primary" mat-raised-button="" type="submit"><span
+											class="mat-button-wrapper">Kayıt ol</span>
+										<div class="mat-button-ripple mat-ripple" matripple=""></div>
+										<div class="mat-button-focus-overlay"></div>
+									</button>
+								</div>
+
+							</form>
+
+
+							<pid-social-providers _ngcontent-c6="" _nghost-c9="">
+								<div _ngcontent-c9="" class="title">
+
+									<h2 _ngcontent-c9="">
+										<span _ngcontent-c9="">Tek Hesap</span>
+										<i _ngcontent-c9="" class="icon-piriid"></i>
+									</h2>
+									<h3 _ngcontent-c9="">Sosyal ağ hesaplarınızla tek tıkla giriş yapın.</h3>
+								</div>
+
+								<div _ngcontent-c9="" class="social-media-buttons" fxlayout="column" fxlayoutgap="15px"
+									style="display: flex; box-sizing: border-box; flex-direction: column; -moz-box-orient: vertical; -moz-box-direction: normal;">
+									<!----><button _ngcontent-c9="" class="mat-button" mat-button="" id="facebook.com"
+										style="margin-bottom: 15px;"><span class="mat-button-wrapper">
+											<img _ngcontent-c9="" src="https://piri.net/assets/img/facebook.svg" alt="Facebook">
+											<span _ngcontent-c9="">Facebook</span>
+										</span>
+										<div class="mat-button-ripple mat-ripple" matripple=""></div>
+										<div class="mat-button-focus-overlay"></div>
+									</button><button _ngcontent-c9="" class="mat-button" mat-button="" id="google.com"
+										style="margin-bottom: 15px;"><span class="mat-button-wrapper">
+											<img _ngcontent-c9="" src="https://piri.net/assets/img/google.svg" alt="Google">
+											<span _ngcontent-c9="">Google</span>
+										</span>
+										<div class="mat-button-ripple mat-ripple" matripple=""></div>
+										<div class="mat-button-focus-overlay"></div>
+									</button><button _ngcontent-c9="" class="mat-button" mat-button=""
+										id="twitter.com"><span class="mat-button-wrapper">
+											<img _ngcontent-c9="" src="https://piri.net/assets/img/twitter.svg" alt="Twitter">
+											<span _ngcontent-c9="">Twitter</span>
+										</span>
+										<div class="mat-button-ripple mat-ripple" matripple=""></div>
+										<div class="mat-button-focus-overlay"></div>
+									</button>
+								</div>
+							</pid-social-providers>
+						</div>
+
+					</div>
+
+
+				</register>
+
+			</div>
+
+		</div>
+	</app-root>
+</body>
+
+</html>
